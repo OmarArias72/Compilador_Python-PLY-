@@ -30,6 +30,7 @@ estructura_elif=r"elif"
 estructura_funcion=r"def"
 instruccion_return=r"return"
 instruccion_print=r"print"
+declaracion_funcion=r"[a-zA-Z_][a-zA-Z0-9_]*\((.*?)\)"
 asignar_funcion=r"[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*[a-zA-Z_][a-zA-Z0-9_]*\((.*?)\)"
 
 def obtener_encabezados(texto):
@@ -103,7 +104,7 @@ def encontrar_patron_codigo(cadena):
         return f"""//La instruccion else realiza la ejecucion de la siguiente instruccion cuando no se cumple la condicion if//"""
     patron=re.search(estructura_elif,cadena)
     if(patron):
-        return f"//La instruccion elif realiza la comprobacion de otra condicion//"
+        return f"//La instruccion elif realiza la comprobacion de otra condicion si no se cumple una condicion definida por if//"
     patron=re.search(estructura_for,cadena)
     if(patron):
         return f"""//La instruccion for permite iterar sobre un valor definido dentro de range() existen dos formas de especificar los parametros. Primera forma: especificar solo un parametro range(a). Segunda forma: especificar dos parametros range(a,b)//"""
@@ -119,9 +120,15 @@ def encontrar_patron_codigo(cadena):
         return (f"//La instruccion return devuelve el control del programa en la linea que se invoco la funcion"+ 
     "ademas puede retornar un valor especificado despues de su declaracion por ejemplo:"+ 
     "return 1, return a*b, return True, etc.//")
+        
+    patron=re.search(declaracion_funcion,cadena)
+    if(patron):
+        return (f"Se realiza el llamado de la funcion con o sin parametros")
+    
     patron=re.search(asignar_funcion,cadena)
     if(patron):
         return f"//La instruccion variable=nombre_funcion permite asignar el valor devuelto por una funcion//"
+    
     patron=re.search(identificador_regex,cadena)
     if(patron):
         return (f"//La siguiente declaracion permite definir una variable/asignar un valor a una variable/asignar/"+ 

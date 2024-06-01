@@ -56,10 +56,10 @@ def t_IDENTIFICADOR(t):
     r"[a-zA-Z][a-zA-Z0-9_]*"
     return t
 
-def t_NUMERO_FLOTANTE(t):
-    r"\d*\.\d*"
-    t.value=float(t.value)
-    return t
+# def t_NUMERO_FLOTANTE(t):
+#     r"\d*\.\d*"
+#     t.value=float(t.value)
+#     return t
 
 def t_NUMERO_ENTERO(t):
     r"(0 | [1-9][0-9]*)"

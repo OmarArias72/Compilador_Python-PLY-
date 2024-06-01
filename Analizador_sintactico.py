@@ -29,7 +29,6 @@ def p_instrucciones(p):
                      | INSTRUCCION estructura_return
                      | INSTRUCCION estructura_print
                      | declaracion_variable
-                     | expr_arit
                      | vacio'''
                      
                      
@@ -37,7 +36,10 @@ def p_instrucciones(p):
     # print(resultado_gramatica)
     
     if(p[1]=="for"):
-        p[0]=p[1]+p[2]
+        if(p[2]!=None):
+            p[0]=p[1]+p[2]
+        else:
+            errores_gramatica.append(f"Error de sintaxis en")
     elif(p[1]=="while"):
         p[0]=p[1]+p[2]
     elif(p[1]=="if"):
@@ -61,6 +63,7 @@ def p_instrucciones(p):
     elif(p[1]=="print"):
         p[0]=p[1]+p[2]
     elif(len(p)==2):
+        print("EVALUACION DECLARACION VARIABLE")
         p[0]=p[1]
     
         
@@ -70,9 +73,9 @@ def p_instrucciones(p):
      
 def p_estructura_for(p):
     '''estructura_for : IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS'''
-    if(p[5]==None):
+    if(p[5]==None and p[2]=="in" and p[3]=="range"):
         p[0]=p[1]+p[2]+p[3]+p[4]+p[6]+p[7]
-    else:    
+    elif(p[2]=="in" and p[3]=="range"):    
         p[0]=p[1]+p[2]+p[3]+p[4]+p[5]+p[6]+p[7]
     
 def p_parametros_for(p):
@@ -199,28 +202,6 @@ def p_estructura_return(p):
     # print(resultado_gramatica)
     p[0]=str(p[1])
 
-       
-def p_expr_arit(p):
-    '''expr_arit : term expr_arit
-                 | OPERADOR_ARITMETICO term expr_arit
-                 | vacio'''
-    print("EXPR_ARIT")
-    resultado_gramatica.append(p[1])
-    print(resultado_gramatica)
-
-    
-    if(len(p)==3):
-        if(p[2]==None):
-            p[0]=p[1]
-        else:
-            p[0]=p[1]+p[2]
-            
-    elif(len(p)==4):
-        if(p[3]==None):
-            p[0]=p[1]+p[2]
-        else:
-            p[0]=p[1]+p[2]+p[3]   
-
 def p_term(p):
     '''term : IDENTIFICADOR
               | NUMERO_ENTERO
@@ -233,6 +214,27 @@ def p_term(p):
     elif(len(p)==4):
         p[0]=p[1]+p[2]+p[3]
     
+       
+def p_expr_arit(p):
+    '''expr_arit : term
+                 | term OPERADOR_ARITMETICO term expr_arit
+                 | vacio'''
+    print("EXPR_ARIT")
+    resultado_gramatica.append(p[1])
+    print(resultado_gramatica)
+
+    
+    if(len(p)==2):
+        p[0]=p[1]
+
+            
+    elif(len(p)==5):
+        print("Se invoca PRODUCCION 2")
+        if(p[4]==None):
+            p[0]=p[1]+p[2]+p[3]
+        else:
+            p[0]=p[1]+p[2]+p[3]+p[4]   
+
 # def p_factor(p):
 #     '''factor : IDENTIFICADOR
 #               | NUMERO_ENTERO
@@ -315,7 +317,7 @@ parser = yacc.yacc()
 # print("Analizador sintactico")
 # while True:
 #    try:
-#        s = """print("Hola mundo")"""
+#        s = """contador =con+ 1"""
 #    except EOFError:
 #        break
 #    if not s: 

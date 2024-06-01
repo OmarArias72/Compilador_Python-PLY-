@@ -6,6 +6,7 @@ from Analizador_sintactico import parser
 from PILA_COMILLAS import*
 from PILA_PARENTESIS import*
 import re
+import textwrap
 
 errores_sintaxis=[]
 
@@ -75,15 +76,16 @@ lineas_codigo=[]
 def separar_codigo(cadena):
     global counter
     counter=1
-    lineas_codigo=cadena.split("\n")
+    codigo_sin_indentacion=textwrap.dedent(cadena)
+    lineas_codigo=codigo_sin_indentacion.split("\n")
     for i in lineas_codigo:
         print(f"Elemento a verificar {i}")
         if(i==""):
             counter +=1
             continue
-        if(verificar_estructura(i,counter)):
+        if(verificar_estructura(i.strip(),counter)):
             errores_gramatica.clear()
-            evaluar_codigo(i)
+            evaluar_codigo(i.strip())
             print(errores_gramatica)
             if(len(errores_gramatica)!=0):
                 errores_sintaxis.append(f"Error de sintaxis en {i} en la linea {counter}")

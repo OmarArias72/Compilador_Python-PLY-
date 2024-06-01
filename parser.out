@@ -18,80 +18,79 @@ Rule 8     instrucciones -> INSTRUCCION estructura_def
 Rule 9     instrucciones -> INSTRUCCION estructura_return
 Rule 10    instrucciones -> INSTRUCCION estructura_print
 Rule 11    instrucciones -> declaracion_variable
-Rule 12    instrucciones -> expr_arit
-Rule 13    instrucciones -> vacio
-Rule 14    estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
-Rule 15    parametros_for -> argumento SEPARADOR argumento
-Rule 16    parametros_for -> argumento
-Rule 17    parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-Rule 18    parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-Rule 19    parametros_for -> vacio
-Rule 20    argumento -> IDENTIFICADOR
-Rule 21    argumento -> NUMERO_ENTERO
-Rule 22    estructura_while -> expr_condi DOS_PUNTOS
-Rule 23    estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-Rule 24    expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
-Rule 25    expr_condi -> argumento OPERADOR_COMPARACION argumento
-Rule 26    expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
-Rule 27    estructura_if -> expr_condi DOS_PUNTOS
-Rule 28    estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-Rule 29    estructura_else -> DOS_PUNTOS
-Rule 30    estructura_elif -> expr_condi DOS_PUNTOS
-Rule 31    estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-Rule 32    estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
-Rule 33    estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN
-Rule 34    parametros -> IDENTIFICADOR parametros
-Rule 35    parametros -> SEPARADOR IDENTIFICADOR parametros
-Rule 36    parametros -> vacio
-Rule 37    estructura_return -> expr_arit
-Rule 38    estructura_return -> expr_condi
-Rule 39    estructura_return -> IDENTIFICADOR
-Rule 40    estructura_return -> NUMERO_ENTERO
-Rule 41    estructura_return -> BOOLEANO
-Rule 42    estructura_return -> vacio
-Rule 43    expr_arit -> term expr_arit
-Rule 44    expr_arit -> OPERADOR_ARITMETICO term expr_arit
-Rule 45    expr_arit -> vacio
-Rule 46    term -> IDENTIFICADOR
-Rule 47    term -> NUMERO_ENTERO
-Rule 48    term -> LPAREN expr_arit RPAREN
-Rule 49    estructura_print -> LPAREN CADENA RPAREN
-Rule 50    estructura_print -> LPAREN IDENTIFICADOR RPAREN
-Rule 51    estructura_print -> LPAREN RPAREN
-Rule 52    declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR
-Rule 53    declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO
-Rule 54    declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit
-Rule 55    declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO
-Rule 56    declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def
-Rule 57    declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA
-Rule 58    declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN
-Rule 59    declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
-Rule 60    declaracion_variable -> IDENTIFICADOR
-Rule 61    vacio -> <empty>
+Rule 12    instrucciones -> vacio
+Rule 13    estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
+Rule 14    parametros_for -> argumento SEPARADOR argumento
+Rule 15    parametros_for -> argumento
+Rule 16    parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+Rule 17    parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+Rule 18    parametros_for -> vacio
+Rule 19    argumento -> IDENTIFICADOR
+Rule 20    argumento -> NUMERO_ENTERO
+Rule 21    estructura_while -> expr_condi DOS_PUNTOS
+Rule 22    estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+Rule 23    expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
+Rule 24    expr_condi -> argumento OPERADOR_COMPARACION argumento
+Rule 25    expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
+Rule 26    estructura_if -> expr_condi DOS_PUNTOS
+Rule 27    estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+Rule 28    estructura_else -> DOS_PUNTOS
+Rule 29    estructura_elif -> expr_condi DOS_PUNTOS
+Rule 30    estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+Rule 31    estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
+Rule 32    estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN
+Rule 33    parametros -> IDENTIFICADOR parametros
+Rule 34    parametros -> SEPARADOR IDENTIFICADOR parametros
+Rule 35    parametros -> vacio
+Rule 36    estructura_return -> expr_arit
+Rule 37    estructura_return -> expr_condi
+Rule 38    estructura_return -> IDENTIFICADOR
+Rule 39    estructura_return -> NUMERO_ENTERO
+Rule 40    estructura_return -> BOOLEANO
+Rule 41    estructura_return -> vacio
+Rule 42    term -> IDENTIFICADOR
+Rule 43    term -> NUMERO_ENTERO
+Rule 44    term -> LPAREN expr_arit RPAREN
+Rule 45    expr_arit -> term
+Rule 46    expr_arit -> term OPERADOR_ARITMETICO term expr_arit
+Rule 47    expr_arit -> vacio
+Rule 48    estructura_print -> LPAREN CADENA RPAREN
+Rule 49    estructura_print -> LPAREN IDENTIFICADOR RPAREN
+Rule 50    estructura_print -> LPAREN RPAREN
+Rule 51    declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR
+Rule 52    declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO
+Rule 53    declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit
+Rule 54    declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO
+Rule 55    declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def
+Rule 56    declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA
+Rule 57    declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN
+Rule 58    declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
+Rule 59    declaracion_variable -> IDENTIFICADOR
+Rule 60    vacio -> <empty>
 
 Terminals, with rules where they appear
 
-ASIGNACION           : 52 53 54 55 56 57 59
-BOOLEANO             : 41 55
-CADENA               : 49 57
+ASIGNACION           : 51 52 53 54 55 56 58
+BOOLEANO             : 40 54
+CADENA               : 48 56
 CHAR                 : 
-DOS_PUNTOS           : 14 22 23 27 28 29 30 31 32
-IDENTIFICADOR        : 14 20 32 33 34 35 39 46 50 52 52 53 54 55 56 57 58 59 59 60
-INSTRUCCION          : 3 4 5 6 7 8 9 10 14 14
-LPAREN               : 14 24 26 32 33 48 49 50 51 58 59
-NUMERO_ENTERO        : 21 40 47 53
-OPERADOR_ARITMETICO  : 17 17 18 44
-OPERADOR_COMPARACION : 24 25 26
-OPERADOR_LOGICO      : 23 28 31
-RPAREN               : 14 24 26 32 33 48 49 50 51 58 59
-SEPARADOR            : 15 17 18 35
+DOS_PUNTOS           : 13 21 22 26 27 28 29 30 31
+IDENTIFICADOR        : 13 19 31 32 33 34 38 42 49 51 51 52 53 54 55 56 57 58 58 59
+INSTRUCCION          : 3 4 5 6 7 8 9 10 13 13
+LPAREN               : 13 23 25 31 32 44 48 49 50 57 58
+NUMERO_ENTERO        : 20 39 43 52
+OPERADOR_ARITMETICO  : 16 16 17 46
+OPERADOR_COMPARACION : 23 24 25
+OPERADOR_LOGICO      : 22 27 30
+RPAREN               : 13 23 25 31 32 44 48 49 50 57 58
+SEPARADOR            : 14 16 17 34
 error                : 
 
 Nonterminals, with rules where they appear
 
-argumento            : 15 15 16 17 17 17 17 18 18 18 24 24 25 25 26
+argumento            : 14 14 15 16 16 16 16 17 17 17 23 23 24 24 25
 declaracion_variable : 11
-estructura_def       : 8 56
+estructura_def       : 8 55
 estructura_elif      : 6
 estructura_else      : 7
 estructura_for       : 3
@@ -99,14 +98,14 @@ estructura_if        : 5
 estructura_print     : 10
 estructura_return    : 9
 estructura_while     : 4
-expr_arit            : 12 26 37 43 44 48 54
-expr_condi           : 22 23 23 27 28 28 30 31 31 38
+expr_arit            : 25 36 44 46 53
+expr_condi           : 21 22 22 26 27 27 29 30 30 37
 instrucciones        : 2
-parametros           : 32 33 34 35 58 59
-parametros_for       : 14
+parametros           : 31 32 33 34 57 58
+parametros_for       : 13
 programa             : 0
-term                 : 43 44
-vacio                : 1 13 19 36 42 45
+term                 : 45 46 46
+vacio                : 1 12 18 35 41 47
 
 Parsing method: LALR
 
@@ -115,7 +114,7 @@ state 0
     (0) S' -> . programa
     (1) programa -> . vacio
     (2) programa -> . instrucciones
-    (61) vacio -> .
+    (60) vacio -> .
     (3) instrucciones -> . INSTRUCCION estructura_for
     (4) instrucciones -> . INSTRUCCION estructura_while
     (5) instrucciones -> . INSTRUCCION estructura_if
@@ -125,37 +124,25 @@ state 0
     (9) instrucciones -> . INSTRUCCION estructura_return
     (10) instrucciones -> . INSTRUCCION estructura_print
     (11) instrucciones -> . declaracion_variable
-    (12) instrucciones -> . expr_arit
-    (13) instrucciones -> . vacio
-    (52) declaracion_variable -> . IDENTIFICADOR ASIGNACION IDENTIFICADOR
-    (53) declaracion_variable -> . IDENTIFICADOR ASIGNACION NUMERO_ENTERO
-    (54) declaracion_variable -> . IDENTIFICADOR ASIGNACION expr_arit
-    (55) declaracion_variable -> . IDENTIFICADOR ASIGNACION BOOLEANO
-    (56) declaracion_variable -> . IDENTIFICADOR ASIGNACION estructura_def
-    (57) declaracion_variable -> . IDENTIFICADOR ASIGNACION CADENA
-    (58) declaracion_variable -> . IDENTIFICADOR LPAREN parametros RPAREN
-    (59) declaracion_variable -> . IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
-    (60) declaracion_variable -> . IDENTIFICADOR
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
+    (12) instrucciones -> . vacio
+    (51) declaracion_variable -> . IDENTIFICADOR ASIGNACION IDENTIFICADOR
+    (52) declaracion_variable -> . IDENTIFICADOR ASIGNACION NUMERO_ENTERO
+    (53) declaracion_variable -> . IDENTIFICADOR ASIGNACION expr_arit
+    (54) declaracion_variable -> . IDENTIFICADOR ASIGNACION BOOLEANO
+    (55) declaracion_variable -> . IDENTIFICADOR ASIGNACION estructura_def
+    (56) declaracion_variable -> . IDENTIFICADOR ASIGNACION CADENA
+    (57) declaracion_variable -> . IDENTIFICADOR LPAREN parametros RPAREN
+    (58) declaracion_variable -> . IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
+    (59) declaracion_variable -> . IDENTIFICADOR
 
-    $end            reduce using rule 61 (vacio -> .)
+    $end            reduce using rule 60 (vacio -> .)
     INSTRUCCION     shift and go to state 4
-    IDENTIFICADOR   shift and go to state 7
-    OPERADOR_ARITMETICO shift and go to state 11
-    NUMERO_ENTERO   shift and go to state 8
-    LPAREN          shift and go to state 9
+    IDENTIFICADOR   shift and go to state 6
 
     programa                       shift and go to state 1
     vacio                          shift and go to state 2
     instrucciones                  shift and go to state 3
     declaracion_variable           shift and go to state 5
-    expr_arit                      shift and go to state 6
-    term                           shift and go to state 10
 
 state 1
 
@@ -166,15 +153,12 @@ state 1
 state 2
 
     (1) programa -> vacio .
-    (13) instrucciones -> vacio .
-    (45) expr_arit -> vacio .
+    (12) instrucciones -> vacio .
 
-  ! reduce/reduce conflict for $end resolved using rule 1 (programa -> vacio .)
   ! reduce/reduce conflict for $end resolved using rule 1 (programa -> vacio .)
     $end            reduce using rule 1 (programa -> vacio .)
 
-  ! $end            [ reduce using rule 13 (instrucciones -> vacio .) ]
-  ! $end            [ reduce using rule 45 (expr_arit -> vacio .) ]
+  ! $end            [ reduce using rule 12 (instrucciones -> vacio .) ]
 
 
 state 3
@@ -194,59 +178,58 @@ state 4
     (8) instrucciones -> INSTRUCCION . estructura_def
     (9) instrucciones -> INSTRUCCION . estructura_return
     (10) instrucciones -> INSTRUCCION . estructura_print
-    (14) estructura_for -> . IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
-    (22) estructura_while -> . expr_condi DOS_PUNTOS
-    (23) estructura_while -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (27) estructura_if -> . expr_condi DOS_PUNTOS
-    (28) estructura_if -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (30) estructura_elif -> . expr_condi DOS_PUNTOS
-    (31) estructura_elif -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (29) estructura_else -> . DOS_PUNTOS
-    (32) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN
-    (37) estructura_return -> . expr_arit
-    (38) estructura_return -> . expr_condi
-    (39) estructura_return -> . IDENTIFICADOR
-    (40) estructura_return -> . NUMERO_ENTERO
-    (41) estructura_return -> . BOOLEANO
-    (42) estructura_return -> . vacio
-    (49) estructura_print -> . LPAREN CADENA RPAREN
-    (50) estructura_print -> . LPAREN IDENTIFICADOR RPAREN
-    (51) estructura_print -> . LPAREN RPAREN
-    (24) expr_condi -> . LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
-    (25) expr_condi -> . argumento OPERADOR_COMPARACION argumento
-    (26) expr_condi -> . LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (61) vacio -> .
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
+    (13) estructura_for -> . IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
+    (21) estructura_while -> . expr_condi DOS_PUNTOS
+    (22) estructura_while -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (26) estructura_if -> . expr_condi DOS_PUNTOS
+    (27) estructura_if -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (29) estructura_elif -> . expr_condi DOS_PUNTOS
+    (30) estructura_elif -> . expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (28) estructura_else -> . DOS_PUNTOS
+    (31) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN
+    (36) estructura_return -> . expr_arit
+    (37) estructura_return -> . expr_condi
+    (38) estructura_return -> . IDENTIFICADOR
+    (39) estructura_return -> . NUMERO_ENTERO
+    (40) estructura_return -> . BOOLEANO
+    (41) estructura_return -> . vacio
+    (48) estructura_print -> . LPAREN CADENA RPAREN
+    (49) estructura_print -> . LPAREN IDENTIFICADOR RPAREN
+    (50) estructura_print -> . LPAREN RPAREN
+    (23) expr_condi -> . LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
+    (24) expr_condi -> . argumento OPERADOR_COMPARACION argumento
+    (25) expr_condi -> . LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (60) vacio -> .
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
 
-    IDENTIFICADOR   shift and go to state 20
-    DOS_PUNTOS      shift and go to state 22
-    NUMERO_ENTERO   shift and go to state 25
-    BOOLEANO        shift and go to state 26
-    LPAREN          shift and go to state 21
-    OPERADOR_ARITMETICO shift and go to state 11
-    $end            reduce using rule 61 (vacio -> .)
+    IDENTIFICADOR   shift and go to state 15
+    DOS_PUNTOS      shift and go to state 17
+    NUMERO_ENTERO   shift and go to state 20
+    BOOLEANO        shift and go to state 21
+    LPAREN          shift and go to state 16
+    $end            reduce using rule 60 (vacio -> .)
 
-    estructura_for                 shift and go to state 12
-    estructura_while               shift and go to state 13
-    estructura_if                  shift and go to state 14
-    estructura_elif                shift and go to state 15
-    estructura_else                shift and go to state 16
-    estructura_def                 shift and go to state 17
-    estructura_return              shift and go to state 18
-    estructura_print               shift and go to state 19
-    expr_condi                     shift and go to state 23
-    expr_arit                      shift and go to state 24
-    vacio                          shift and go to state 27
-    argumento                      shift and go to state 28
-    term                           shift and go to state 10
+    estructura_for                 shift and go to state 7
+    estructura_while               shift and go to state 8
+    estructura_if                  shift and go to state 9
+    estructura_elif                shift and go to state 10
+    estructura_else                shift and go to state 11
+    estructura_def                 shift and go to state 12
+    estructura_return              shift and go to state 13
+    estructura_print               shift and go to state 14
+    expr_condi                     shift and go to state 18
+    expr_arit                      shift and go to state 19
+    vacio                          shift and go to state 22
+    argumento                      shift and go to state 23
+    term                           shift and go to state 24
 
 state 5
 
@@ -257,1124 +240,1051 @@ state 5
 
 state 6
 
-    (12) instrucciones -> expr_arit .
+    (51) declaracion_variable -> IDENTIFICADOR . ASIGNACION IDENTIFICADOR
+    (52) declaracion_variable -> IDENTIFICADOR . ASIGNACION NUMERO_ENTERO
+    (53) declaracion_variable -> IDENTIFICADOR . ASIGNACION expr_arit
+    (54) declaracion_variable -> IDENTIFICADOR . ASIGNACION BOOLEANO
+    (55) declaracion_variable -> IDENTIFICADOR . ASIGNACION estructura_def
+    (56) declaracion_variable -> IDENTIFICADOR . ASIGNACION CADENA
+    (57) declaracion_variable -> IDENTIFICADOR . LPAREN parametros RPAREN
+    (58) declaracion_variable -> IDENTIFICADOR . ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
+    (59) declaracion_variable -> IDENTIFICADOR .
 
-    $end            reduce using rule 12 (instrucciones -> expr_arit .)
+    ASIGNACION      shift and go to state 25
+    LPAREN          shift and go to state 26
+    $end            reduce using rule 59 (declaracion_variable -> IDENTIFICADOR .)
 
 
 state 7
-
-    (52) declaracion_variable -> IDENTIFICADOR . ASIGNACION IDENTIFICADOR
-    (53) declaracion_variable -> IDENTIFICADOR . ASIGNACION NUMERO_ENTERO
-    (54) declaracion_variable -> IDENTIFICADOR . ASIGNACION expr_arit
-    (55) declaracion_variable -> IDENTIFICADOR . ASIGNACION BOOLEANO
-    (56) declaracion_variable -> IDENTIFICADOR . ASIGNACION estructura_def
-    (57) declaracion_variable -> IDENTIFICADOR . ASIGNACION CADENA
-    (58) declaracion_variable -> IDENTIFICADOR . LPAREN parametros RPAREN
-    (59) declaracion_variable -> IDENTIFICADOR . ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN
-    (60) declaracion_variable -> IDENTIFICADOR .
-    (46) term -> IDENTIFICADOR .
-
-  ! shift/reduce conflict for LPAREN resolved as shift
-  ! reduce/reduce conflict for $end resolved using rule 46 (term -> IDENTIFICADOR .)
-    ASIGNACION      shift and go to state 29
-    LPAREN          shift and go to state 30
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
-    $end            reduce using rule 46 (term -> IDENTIFICADOR .)
-
-  ! $end            [ reduce using rule 60 (declaracion_variable -> IDENTIFICADOR .) ]
-  ! LPAREN          [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
-
-
-state 8
-
-    (47) term -> NUMERO_ENTERO .
-
-    OPERADOR_ARITMETICO reduce using rule 47 (term -> NUMERO_ENTERO .)
-    IDENTIFICADOR   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    NUMERO_ENTERO   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    LPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
-    $end            reduce using rule 47 (term -> NUMERO_ENTERO .)
-    RPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
-    OPERADOR_COMPARACION reduce using rule 47 (term -> NUMERO_ENTERO .)
-
-
-state 9
-
-    (48) term -> LPAREN . expr_arit RPAREN
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
-
-    OPERADOR_ARITMETICO shift and go to state 11
-    IDENTIFICADOR   shift and go to state 33
-    NUMERO_ENTERO   shift and go to state 8
-    LPAREN          shift and go to state 9
-    RPAREN          reduce using rule 61 (vacio -> .)
-
-    expr_arit                      shift and go to state 31
-    term                           shift and go to state 10
-    vacio                          shift and go to state 32
-
-state 10
-
-    (43) expr_arit -> term . expr_arit
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
-
-    OPERADOR_ARITMETICO shift and go to state 11
-    IDENTIFICADOR   shift and go to state 33
-    NUMERO_ENTERO   shift and go to state 8
-    LPAREN          shift and go to state 9
-    $end            reduce using rule 61 (vacio -> .)
-    RPAREN          reduce using rule 61 (vacio -> .)
-    OPERADOR_COMPARACION reduce using rule 61 (vacio -> .)
-
-    term                           shift and go to state 10
-    expr_arit                      shift and go to state 34
-    vacio                          shift and go to state 32
-
-state 11
-
-    (44) expr_arit -> OPERADOR_ARITMETICO . term expr_arit
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-
-    IDENTIFICADOR   shift and go to state 33
-    NUMERO_ENTERO   shift and go to state 8
-    LPAREN          shift and go to state 9
-
-    term                           shift and go to state 35
-
-state 12
 
     (3) instrucciones -> INSTRUCCION estructura_for .
 
     $end            reduce using rule 3 (instrucciones -> INSTRUCCION estructura_for .)
 
 
-state 13
+state 8
 
     (4) instrucciones -> INSTRUCCION estructura_while .
 
     $end            reduce using rule 4 (instrucciones -> INSTRUCCION estructura_while .)
 
 
-state 14
+state 9
 
     (5) instrucciones -> INSTRUCCION estructura_if .
 
     $end            reduce using rule 5 (instrucciones -> INSTRUCCION estructura_if .)
 
 
-state 15
+state 10
 
     (6) instrucciones -> INSTRUCCION estructura_elif .
 
     $end            reduce using rule 6 (instrucciones -> INSTRUCCION estructura_elif .)
 
 
-state 16
+state 11
 
     (7) instrucciones -> INSTRUCCION estructura_else .
 
     $end            reduce using rule 7 (instrucciones -> INSTRUCCION estructura_else .)
 
 
-state 17
+state 12
 
     (8) instrucciones -> INSTRUCCION estructura_def .
 
     $end            reduce using rule 8 (instrucciones -> INSTRUCCION estructura_def .)
 
 
-state 18
+state 13
 
     (9) instrucciones -> INSTRUCCION estructura_return .
 
     $end            reduce using rule 9 (instrucciones -> INSTRUCCION estructura_return .)
 
 
-state 19
+state 14
 
     (10) instrucciones -> INSTRUCCION estructura_print .
 
     $end            reduce using rule 10 (instrucciones -> INSTRUCCION estructura_print .)
 
 
+state 15
+
+    (13) estructura_for -> IDENTIFICADOR . INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
+    (31) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN
+    (38) estructura_return -> IDENTIFICADOR .
+    (19) argumento -> IDENTIFICADOR .
+    (42) term -> IDENTIFICADOR .
+
+  ! reduce/reduce conflict for $end resolved using rule 38 (estructura_return -> IDENTIFICADOR .)
+    INSTRUCCION     shift and go to state 27
+    LPAREN          shift and go to state 28
+    $end            reduce using rule 38 (estructura_return -> IDENTIFICADOR .)
+    OPERADOR_COMPARACION reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_ARITMETICO reduce using rule 42 (term -> IDENTIFICADOR .)
+
+  ! $end            [ reduce using rule 42 (term -> IDENTIFICADOR .) ]
+
+
+state 16
+
+    (48) estructura_print -> LPAREN . CADENA RPAREN
+    (49) estructura_print -> LPAREN . IDENTIFICADOR RPAREN
+    (50) estructura_print -> LPAREN . RPAREN
+    (23) expr_condi -> LPAREN . argumento OPERADOR_COMPARACION argumento RPAREN
+    (25) expr_condi -> LPAREN . expr_arit OPERADOR_COMPARACION argumento RPAREN
+    (44) term -> LPAREN . expr_arit RPAREN
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
+    (60) vacio -> .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    CADENA          shift and go to state 30
+    IDENTIFICADOR   shift and go to state 32
+    RPAREN          shift and go to state 31
+    NUMERO_ENTERO   shift and go to state 35
+    LPAREN          shift and go to state 29
+    OPERADOR_COMPARACION reduce using rule 60 (vacio -> .)
+
+  ! RPAREN          [ reduce using rule 60 (vacio -> .) ]
+
+    argumento                      shift and go to state 33
+    expr_arit                      shift and go to state 34
+    term                           shift and go to state 24
+    vacio                          shift and go to state 36
+
+state 17
+
+    (28) estructura_else -> DOS_PUNTOS .
+
+    $end            reduce using rule 28 (estructura_else -> DOS_PUNTOS .)
+
+
+state 18
+
+    (21) estructura_while -> expr_condi . DOS_PUNTOS
+    (22) estructura_while -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (26) estructura_if -> expr_condi . DOS_PUNTOS
+    (27) estructura_if -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (29) estructura_elif -> expr_condi . DOS_PUNTOS
+    (30) estructura_elif -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
+    (37) estructura_return -> expr_condi .
+
+    DOS_PUNTOS      shift and go to state 37
+    OPERADOR_LOGICO shift and go to state 38
+    $end            reduce using rule 37 (estructura_return -> expr_condi .)
+
+
+state 19
+
+    (36) estructura_return -> expr_arit .
+
+    $end            reduce using rule 36 (estructura_return -> expr_arit .)
+
+
 state 20
 
-    (14) estructura_for -> IDENTIFICADOR . INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
-    (32) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN
-    (39) estructura_return -> IDENTIFICADOR .
-    (20) argumento -> IDENTIFICADOR .
-    (46) term -> IDENTIFICADOR .
+    (39) estructura_return -> NUMERO_ENTERO .
+    (20) argumento -> NUMERO_ENTERO .
+    (43) term -> NUMERO_ENTERO .
 
-  ! shift/reduce conflict for LPAREN resolved as shift
-  ! reduce/reduce conflict for $end resolved using rule 39 (estructura_return -> IDENTIFICADOR .)
-    INSTRUCCION     shift and go to state 36
-    LPAREN          shift and go to state 37
-    $end            reduce using rule 39 (estructura_return -> IDENTIFICADOR .)
-    OPERADOR_COMPARACION reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
+  ! reduce/reduce conflict for $end resolved using rule 39 (estructura_return -> NUMERO_ENTERO .)
+    $end            reduce using rule 39 (estructura_return -> NUMERO_ENTERO .)
+    OPERADOR_COMPARACION reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    OPERADOR_ARITMETICO reduce using rule 43 (term -> NUMERO_ENTERO .)
 
-  ! LPAREN          [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
-  ! $end            [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
+  ! $end            [ reduce using rule 43 (term -> NUMERO_ENTERO .) ]
 
 
 state 21
 
-    (49) estructura_print -> LPAREN . CADENA RPAREN
-    (50) estructura_print -> LPAREN . IDENTIFICADOR RPAREN
-    (51) estructura_print -> LPAREN . RPAREN
-    (24) expr_condi -> LPAREN . argumento OPERADOR_COMPARACION argumento RPAREN
-    (26) expr_condi -> LPAREN . expr_arit OPERADOR_COMPARACION argumento RPAREN
-    (48) term -> LPAREN . expr_arit RPAREN
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
+    (40) estructura_return -> BOOLEANO .
 
-  ! shift/reduce conflict for RPAREN resolved as shift
-    CADENA          shift and go to state 38
-    IDENTIFICADOR   shift and go to state 40
-    RPAREN          shift and go to state 39
-    NUMERO_ENTERO   shift and go to state 43
-    OPERADOR_ARITMETICO shift and go to state 11
-    LPAREN          shift and go to state 9
-    OPERADOR_COMPARACION reduce using rule 61 (vacio -> .)
+    $end            reduce using rule 40 (estructura_return -> BOOLEANO .)
 
-  ! RPAREN          [ reduce using rule 61 (vacio -> .) ]
-
-    argumento                      shift and go to state 41
-    expr_arit                      shift and go to state 42
-    term                           shift and go to state 10
-    vacio                          shift and go to state 32
 
 state 22
 
-    (29) estructura_else -> DOS_PUNTOS .
+    (41) estructura_return -> vacio .
+    (47) expr_arit -> vacio .
 
-    $end            reduce using rule 29 (estructura_else -> DOS_PUNTOS .)
+  ! reduce/reduce conflict for $end resolved using rule 41 (estructura_return -> vacio .)
+    $end            reduce using rule 41 (estructura_return -> vacio .)
+
+  ! $end            [ reduce using rule 47 (expr_arit -> vacio .) ]
 
 
 state 23
 
-    (22) estructura_while -> expr_condi . DOS_PUNTOS
-    (23) estructura_while -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (27) estructura_if -> expr_condi . DOS_PUNTOS
-    (28) estructura_if -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (30) estructura_elif -> expr_condi . DOS_PUNTOS
-    (31) estructura_elif -> expr_condi . OPERADOR_LOGICO expr_condi DOS_PUNTOS
-    (38) estructura_return -> expr_condi .
+    (24) expr_condi -> argumento . OPERADOR_COMPARACION argumento
 
-    DOS_PUNTOS      shift and go to state 44
-    OPERADOR_LOGICO shift and go to state 45
-    $end            reduce using rule 38 (estructura_return -> expr_condi .)
+    OPERADOR_COMPARACION shift and go to state 39
 
 
 state 24
 
-    (37) estructura_return -> expr_arit .
+    (45) expr_arit -> term .
+    (46) expr_arit -> term . OPERADOR_ARITMETICO term expr_arit
 
-    $end            reduce using rule 37 (estructura_return -> expr_arit .)
+    $end            reduce using rule 45 (expr_arit -> term .)
+    OPERADOR_COMPARACION reduce using rule 45 (expr_arit -> term .)
+    RPAREN          reduce using rule 45 (expr_arit -> term .)
+    OPERADOR_ARITMETICO shift and go to state 40
 
 
 state 25
 
-    (40) estructura_return -> NUMERO_ENTERO .
-    (21) argumento -> NUMERO_ENTERO .
-    (47) term -> NUMERO_ENTERO .
+    (51) declaracion_variable -> IDENTIFICADOR ASIGNACION . IDENTIFICADOR
+    (52) declaracion_variable -> IDENTIFICADOR ASIGNACION . NUMERO_ENTERO
+    (53) declaracion_variable -> IDENTIFICADOR ASIGNACION . expr_arit
+    (54) declaracion_variable -> IDENTIFICADOR ASIGNACION . BOOLEANO
+    (55) declaracion_variable -> IDENTIFICADOR ASIGNACION . estructura_def
+    (56) declaracion_variable -> IDENTIFICADOR ASIGNACION . CADENA
+    (58) declaracion_variable -> IDENTIFICADOR ASIGNACION . IDENTIFICADOR LPAREN parametros RPAREN
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (31) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
+    (60) vacio -> .
 
-  ! reduce/reduce conflict for $end resolved using rule 40 (estructura_return -> NUMERO_ENTERO .)
-    $end            reduce using rule 40 (estructura_return -> NUMERO_ENTERO .)
-    OPERADOR_COMPARACION reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    OPERADOR_ARITMETICO reduce using rule 47 (term -> NUMERO_ENTERO .)
-    IDENTIFICADOR   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    NUMERO_ENTERO   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    LPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
+    IDENTIFICADOR   shift and go to state 41
+    NUMERO_ENTERO   shift and go to state 42
+    BOOLEANO        shift and go to state 44
+    CADENA          shift and go to state 46
+    LPAREN          shift and go to state 29
+    $end            reduce using rule 60 (vacio -> .)
 
-  ! $end            [ reduce using rule 47 (term -> NUMERO_ENTERO .) ]
-
+    expr_arit                      shift and go to state 43
+    estructura_def                 shift and go to state 45
+    term                           shift and go to state 24
+    vacio                          shift and go to state 36
 
 state 26
 
-    (41) estructura_return -> BOOLEANO .
+    (57) declaracion_variable -> IDENTIFICADOR LPAREN . parametros RPAREN
+    (33) parametros -> . IDENTIFICADOR parametros
+    (34) parametros -> . SEPARADOR IDENTIFICADOR parametros
+    (35) parametros -> . vacio
+    (60) vacio -> .
 
-    $end            reduce using rule 41 (estructura_return -> BOOLEANO .)
+    IDENTIFICADOR   shift and go to state 47
+    SEPARADOR       shift and go to state 49
+    RPAREN          reduce using rule 60 (vacio -> .)
 
+    parametros                     shift and go to state 48
+    vacio                          shift and go to state 50
 
 state 27
 
-    (42) estructura_return -> vacio .
-    (45) expr_arit -> vacio .
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION . INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
 
-  ! reduce/reduce conflict for $end resolved using rule 42 (estructura_return -> vacio .)
-    $end            reduce using rule 42 (estructura_return -> vacio .)
-
-  ! $end            [ reduce using rule 45 (expr_arit -> vacio .) ]
+    INSTRUCCION     shift and go to state 51
 
 
 state 28
 
-    (25) expr_condi -> argumento . OPERADOR_COMPARACION argumento
+    (31) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN
+    (33) parametros -> . IDENTIFICADOR parametros
+    (34) parametros -> . SEPARADOR IDENTIFICADOR parametros
+    (35) parametros -> . vacio
+    (60) vacio -> .
 
-    OPERADOR_COMPARACION shift and go to state 46
+    IDENTIFICADOR   shift and go to state 47
+    SEPARADOR       shift and go to state 49
+    RPAREN          reduce using rule 60 (vacio -> .)
 
+    parametros                     shift and go to state 52
+    vacio                          shift and go to state 50
 
 state 29
 
-    (52) declaracion_variable -> IDENTIFICADOR ASIGNACION . IDENTIFICADOR
-    (53) declaracion_variable -> IDENTIFICADOR ASIGNACION . NUMERO_ENTERO
-    (54) declaracion_variable -> IDENTIFICADOR ASIGNACION . expr_arit
-    (55) declaracion_variable -> IDENTIFICADOR ASIGNACION . BOOLEANO
-    (56) declaracion_variable -> IDENTIFICADOR ASIGNACION . estructura_def
-    (57) declaracion_variable -> IDENTIFICADOR ASIGNACION . CADENA
-    (59) declaracion_variable -> IDENTIFICADOR ASIGNACION . IDENTIFICADOR LPAREN parametros RPAREN
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (32) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> . IDENTIFICADOR LPAREN parametros RPAREN
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
+    (44) term -> LPAREN . expr_arit RPAREN
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
+    (60) vacio -> .
 
-    IDENTIFICADOR   shift and go to state 47
-    NUMERO_ENTERO   shift and go to state 48
-    BOOLEANO        shift and go to state 50
-    CADENA          shift and go to state 52
-    OPERADOR_ARITMETICO shift and go to state 11
-    LPAREN          shift and go to state 9
-    $end            reduce using rule 61 (vacio -> .)
+    IDENTIFICADOR   shift and go to state 54
+    NUMERO_ENTERO   shift and go to state 55
+    LPAREN          shift and go to state 29
+    RPAREN          reduce using rule 60 (vacio -> .)
 
-    expr_arit                      shift and go to state 49
-    estructura_def                 shift and go to state 51
-    term                           shift and go to state 10
-    vacio                          shift and go to state 32
+    expr_arit                      shift and go to state 53
+    term                           shift and go to state 24
+    vacio                          shift and go to state 36
 
 state 30
 
-    (58) declaracion_variable -> IDENTIFICADOR LPAREN . parametros RPAREN
-    (34) parametros -> . IDENTIFICADOR parametros
-    (35) parametros -> . SEPARADOR IDENTIFICADOR parametros
-    (36) parametros -> . vacio
-    (61) vacio -> .
+    (48) estructura_print -> LPAREN CADENA . RPAREN
 
-    IDENTIFICADOR   shift and go to state 53
-    SEPARADOR       shift and go to state 55
-    RPAREN          reduce using rule 61 (vacio -> .)
+    RPAREN          shift and go to state 56
 
-    parametros                     shift and go to state 54
-    vacio                          shift and go to state 56
 
 state 31
 
-    (48) term -> LPAREN expr_arit . RPAREN
+    (50) estructura_print -> LPAREN RPAREN .
 
-    RPAREN          shift and go to state 57
+    $end            reduce using rule 50 (estructura_print -> LPAREN RPAREN .)
 
 
 state 32
 
-    (45) expr_arit -> vacio .
+    (49) estructura_print -> LPAREN IDENTIFICADOR . RPAREN
+    (19) argumento -> IDENTIFICADOR .
+    (42) term -> IDENTIFICADOR .
 
-    RPAREN          reduce using rule 45 (expr_arit -> vacio .)
-    $end            reduce using rule 45 (expr_arit -> vacio .)
-    OPERADOR_COMPARACION reduce using rule 45 (expr_arit -> vacio .)
+  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 19 (argumento -> IDENTIFICADOR .)
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 57
+    OPERADOR_COMPARACION reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_ARITMETICO reduce using rule 42 (term -> IDENTIFICADOR .)
+
+  ! OPERADOR_COMPARACION [ reduce using rule 42 (term -> IDENTIFICADOR .) ]
+  ! RPAREN          [ reduce using rule 42 (term -> IDENTIFICADOR .) ]
 
 
 state 33
 
-    (46) term -> IDENTIFICADOR .
+    (23) expr_condi -> LPAREN argumento . OPERADOR_COMPARACION argumento RPAREN
 
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
-    LPAREN          reduce using rule 46 (term -> IDENTIFICADOR .)
-    RPAREN          reduce using rule 46 (term -> IDENTIFICADOR .)
-    $end            reduce using rule 46 (term -> IDENTIFICADOR .)
-    OPERADOR_COMPARACION reduce using rule 46 (term -> IDENTIFICADOR .)
+    OPERADOR_COMPARACION shift and go to state 58
 
 
 state 34
 
-    (43) expr_arit -> term expr_arit .
+    (25) expr_condi -> LPAREN expr_arit . OPERADOR_COMPARACION argumento RPAREN
+    (44) term -> LPAREN expr_arit . RPAREN
 
-    $end            reduce using rule 43 (expr_arit -> term expr_arit .)
-    RPAREN          reduce using rule 43 (expr_arit -> term expr_arit .)
-    OPERADOR_COMPARACION reduce using rule 43 (expr_arit -> term expr_arit .)
+    OPERADOR_COMPARACION shift and go to state 59
+    RPAREN          shift and go to state 60
 
 
 state 35
 
-    (44) expr_arit -> OPERADOR_ARITMETICO term . expr_arit
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
+    (20) argumento -> NUMERO_ENTERO .
+    (43) term -> NUMERO_ENTERO .
 
-    OPERADOR_ARITMETICO shift and go to state 11
-    IDENTIFICADOR   shift and go to state 33
-    NUMERO_ENTERO   shift and go to state 8
-    LPAREN          shift and go to state 9
-    $end            reduce using rule 61 (vacio -> .)
-    RPAREN          reduce using rule 61 (vacio -> .)
-    OPERADOR_COMPARACION reduce using rule 61 (vacio -> .)
+  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 20 (argumento -> NUMERO_ENTERO .)
+    OPERADOR_COMPARACION reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    OPERADOR_ARITMETICO reduce using rule 43 (term -> NUMERO_ENTERO .)
+    RPAREN          reduce using rule 43 (term -> NUMERO_ENTERO .)
 
-    term                           shift and go to state 10
-    expr_arit                      shift and go to state 58
-    vacio                          shift and go to state 32
+  ! OPERADOR_COMPARACION [ reduce using rule 43 (term -> NUMERO_ENTERO .) ]
+
 
 state 36
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION . INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS
+    (47) expr_arit -> vacio .
 
-    INSTRUCCION     shift and go to state 59
+    OPERADOR_COMPARACION reduce using rule 47 (expr_arit -> vacio .)
+    RPAREN          reduce using rule 47 (expr_arit -> vacio .)
+    $end            reduce using rule 47 (expr_arit -> vacio .)
 
 
 state 37
 
-    (32) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN
-    (34) parametros -> . IDENTIFICADOR parametros
-    (35) parametros -> . SEPARADOR IDENTIFICADOR parametros
-    (36) parametros -> . vacio
-    (61) vacio -> .
+    (21) estructura_while -> expr_condi DOS_PUNTOS .
+    (26) estructura_if -> expr_condi DOS_PUNTOS .
+    (29) estructura_elif -> expr_condi DOS_PUNTOS .
 
-    IDENTIFICADOR   shift and go to state 53
-    SEPARADOR       shift and go to state 55
-    RPAREN          reduce using rule 61 (vacio -> .)
+  ! reduce/reduce conflict for $end resolved using rule 21 (estructura_while -> expr_condi DOS_PUNTOS .)
+  ! reduce/reduce conflict for $end resolved using rule 21 (estructura_while -> expr_condi DOS_PUNTOS .)
+    $end            reduce using rule 21 (estructura_while -> expr_condi DOS_PUNTOS .)
 
-    parametros                     shift and go to state 60
-    vacio                          shift and go to state 56
+  ! $end            [ reduce using rule 26 (estructura_if -> expr_condi DOS_PUNTOS .) ]
+  ! $end            [ reduce using rule 29 (estructura_elif -> expr_condi DOS_PUNTOS .) ]
+
 
 state 38
 
-    (49) estructura_print -> LPAREN CADENA . RPAREN
+    (22) estructura_while -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
+    (27) estructura_if -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
+    (30) estructura_elif -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
+    (23) expr_condi -> . LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
+    (24) expr_condi -> . argumento OPERADOR_COMPARACION argumento
+    (25) expr_condi -> . LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    RPAREN          shift and go to state 61
+    LPAREN          shift and go to state 62
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    expr_condi                     shift and go to state 61
+    argumento                      shift and go to state 23
 
 state 39
 
-    (51) estructura_print -> LPAREN RPAREN .
+    (24) expr_condi -> argumento OPERADOR_COMPARACION . argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    $end            reduce using rule 51 (estructura_print -> LPAREN RPAREN .)
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 65
 
 state 40
 
-    (50) estructura_print -> LPAREN IDENTIFICADOR . RPAREN
-    (20) argumento -> IDENTIFICADOR .
-    (46) term -> IDENTIFICADOR .
+    (46) expr_arit -> term OPERADOR_ARITMETICO . term expr_arit
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
 
-  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 20 (argumento -> IDENTIFICADOR .)
-  ! shift/reduce conflict for RPAREN resolved as shift
-    RPAREN          shift and go to state 62
-    OPERADOR_COMPARACION reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
-    LPAREN          reduce using rule 46 (term -> IDENTIFICADOR .)
+    IDENTIFICADOR   shift and go to state 54
+    NUMERO_ENTERO   shift and go to state 55
+    LPAREN          shift and go to state 29
 
-  ! OPERADOR_COMPARACION [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
-  ! RPAREN          [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
-
+    term                           shift and go to state 66
 
 state 41
 
-    (24) expr_condi -> LPAREN argumento . OPERADOR_COMPARACION argumento RPAREN
+    (51) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR .
+    (58) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR . LPAREN parametros RPAREN
+    (31) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN
+    (42) term -> IDENTIFICADOR .
 
-    OPERADOR_COMPARACION shift and go to state 63
+  ! reduce/reduce conflict for $end resolved using rule 42 (term -> IDENTIFICADOR .)
+    LPAREN          shift and go to state 67
+    OPERADOR_ARITMETICO reduce using rule 42 (term -> IDENTIFICADOR .)
+    $end            reduce using rule 42 (term -> IDENTIFICADOR .)
+
+  ! $end            [ reduce using rule 51 (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR .) ]
 
 
 state 42
 
-    (26) expr_condi -> LPAREN expr_arit . OPERADOR_COMPARACION argumento RPAREN
-    (48) term -> LPAREN expr_arit . RPAREN
+    (52) declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO .
+    (43) term -> NUMERO_ENTERO .
 
-    OPERADOR_COMPARACION shift and go to state 64
-    RPAREN          shift and go to state 57
+  ! reduce/reduce conflict for $end resolved using rule 43 (term -> NUMERO_ENTERO .)
+    OPERADOR_ARITMETICO reduce using rule 43 (term -> NUMERO_ENTERO .)
+    $end            reduce using rule 43 (term -> NUMERO_ENTERO .)
+
+  ! $end            [ reduce using rule 52 (declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO .) ]
 
 
 state 43
 
-    (21) argumento -> NUMERO_ENTERO .
-    (47) term -> NUMERO_ENTERO .
+    (53) declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit .
 
-  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 21 (argumento -> NUMERO_ENTERO .)
-    OPERADOR_COMPARACION reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    OPERADOR_ARITMETICO reduce using rule 47 (term -> NUMERO_ENTERO .)
-    IDENTIFICADOR   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    NUMERO_ENTERO   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    LPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
-    RPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
-
-  ! OPERADOR_COMPARACION [ reduce using rule 47 (term -> NUMERO_ENTERO .) ]
+    $end            reduce using rule 53 (declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit .)
 
 
 state 44
 
-    (22) estructura_while -> expr_condi DOS_PUNTOS .
-    (27) estructura_if -> expr_condi DOS_PUNTOS .
-    (30) estructura_elif -> expr_condi DOS_PUNTOS .
+    (54) declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO .
 
-  ! reduce/reduce conflict for $end resolved using rule 22 (estructura_while -> expr_condi DOS_PUNTOS .)
-  ! reduce/reduce conflict for $end resolved using rule 22 (estructura_while -> expr_condi DOS_PUNTOS .)
-    $end            reduce using rule 22 (estructura_while -> expr_condi DOS_PUNTOS .)
-
-  ! $end            [ reduce using rule 27 (estructura_if -> expr_condi DOS_PUNTOS .) ]
-  ! $end            [ reduce using rule 30 (estructura_elif -> expr_condi DOS_PUNTOS .) ]
+    $end            reduce using rule 54 (declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO .)
 
 
 state 45
 
-    (23) estructura_while -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
-    (28) estructura_if -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
-    (31) estructura_elif -> expr_condi OPERADOR_LOGICO . expr_condi DOS_PUNTOS
-    (24) expr_condi -> . LPAREN argumento OPERADOR_COMPARACION argumento RPAREN
-    (25) expr_condi -> . argumento OPERADOR_COMPARACION argumento
-    (26) expr_condi -> . LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (55) declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def .
 
-    LPAREN          shift and go to state 66
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    $end            reduce using rule 55 (declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def .)
 
-    expr_condi                     shift and go to state 65
-    argumento                      shift and go to state 28
 
 state 46
 
-    (25) expr_condi -> argumento OPERADOR_COMPARACION . argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (56) declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA .
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    $end            reduce using rule 56 (declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA .)
 
-    argumento                      shift and go to state 69
 
 state 47
 
-    (52) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR .
-    (59) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR . LPAREN parametros RPAREN
-    (32) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR . LPAREN parametros RPAREN
-    (46) term -> IDENTIFICADOR .
+    (33) parametros -> IDENTIFICADOR . parametros
+    (33) parametros -> . IDENTIFICADOR parametros
+    (34) parametros -> . SEPARADOR IDENTIFICADOR parametros
+    (35) parametros -> . vacio
+    (60) vacio -> .
 
-  ! shift/reduce conflict for LPAREN resolved as shift
-  ! reduce/reduce conflict for $end resolved using rule 46 (term -> IDENTIFICADOR .)
-    LPAREN          shift and go to state 70
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
-    $end            reduce using rule 46 (term -> IDENTIFICADOR .)
+    IDENTIFICADOR   shift and go to state 47
+    SEPARADOR       shift and go to state 49
+    RPAREN          reduce using rule 60 (vacio -> .)
 
-  ! $end            [ reduce using rule 52 (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR .) ]
-  ! LPAREN          [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
-
+    parametros                     shift and go to state 68
+    vacio                          shift and go to state 50
 
 state 48
 
-    (53) declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO .
-    (47) term -> NUMERO_ENTERO .
+    (57) declaracion_variable -> IDENTIFICADOR LPAREN parametros . RPAREN
 
-  ! reduce/reduce conflict for $end resolved using rule 47 (term -> NUMERO_ENTERO .)
-    OPERADOR_ARITMETICO reduce using rule 47 (term -> NUMERO_ENTERO .)
-    IDENTIFICADOR   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    NUMERO_ENTERO   reduce using rule 47 (term -> NUMERO_ENTERO .)
-    LPAREN          reduce using rule 47 (term -> NUMERO_ENTERO .)
-    $end            reduce using rule 47 (term -> NUMERO_ENTERO .)
-
-  ! $end            [ reduce using rule 53 (declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO .) ]
+    RPAREN          shift and go to state 69
 
 
 state 49
 
-    (54) declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit .
+    (34) parametros -> SEPARADOR . IDENTIFICADOR parametros
 
-    $end            reduce using rule 54 (declaracion_variable -> IDENTIFICADOR ASIGNACION expr_arit .)
+    IDENTIFICADOR   shift and go to state 70
 
 
 state 50
 
-    (55) declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO .
+    (35) parametros -> vacio .
 
-    $end            reduce using rule 55 (declaracion_variable -> IDENTIFICADOR ASIGNACION BOOLEANO .)
+    RPAREN          reduce using rule 35 (parametros -> vacio .)
 
 
 state 51
 
-    (56) declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def .
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION . LPAREN parametros_for RPAREN DOS_PUNTOS
 
-    $end            reduce using rule 56 (declaracion_variable -> IDENTIFICADOR ASIGNACION estructura_def .)
+    LPAREN          shift and go to state 71
 
 
 state 52
 
-    (57) declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA .
-
-    $end            reduce using rule 57 (declaracion_variable -> IDENTIFICADOR ASIGNACION CADENA .)
-
-
-state 53
-
-    (34) parametros -> IDENTIFICADOR . parametros
-    (34) parametros -> . IDENTIFICADOR parametros
-    (35) parametros -> . SEPARADOR IDENTIFICADOR parametros
-    (36) parametros -> . vacio
-    (61) vacio -> .
-
-    IDENTIFICADOR   shift and go to state 53
-    SEPARADOR       shift and go to state 55
-    RPAREN          reduce using rule 61 (vacio -> .)
-
-    parametros                     shift and go to state 71
-    vacio                          shift and go to state 56
-
-state 54
-
-    (58) declaracion_variable -> IDENTIFICADOR LPAREN parametros . RPAREN
+    (31) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN
 
     RPAREN          shift and go to state 72
 
 
+state 53
+
+    (44) term -> LPAREN expr_arit . RPAREN
+
+    RPAREN          shift and go to state 60
+
+
+state 54
+
+    (42) term -> IDENTIFICADOR .
+
+    OPERADOR_ARITMETICO reduce using rule 42 (term -> IDENTIFICADOR .)
+    RPAREN          reduce using rule 42 (term -> IDENTIFICADOR .)
+    IDENTIFICADOR   reduce using rule 42 (term -> IDENTIFICADOR .)
+    NUMERO_ENTERO   reduce using rule 42 (term -> IDENTIFICADOR .)
+    LPAREN          reduce using rule 42 (term -> IDENTIFICADOR .)
+    $end            reduce using rule 42 (term -> IDENTIFICADOR .)
+    OPERADOR_COMPARACION reduce using rule 42 (term -> IDENTIFICADOR .)
+
+
 state 55
 
-    (35) parametros -> SEPARADOR . IDENTIFICADOR parametros
+    (43) term -> NUMERO_ENTERO .
 
-    IDENTIFICADOR   shift and go to state 73
+    OPERADOR_ARITMETICO reduce using rule 43 (term -> NUMERO_ENTERO .)
+    RPAREN          reduce using rule 43 (term -> NUMERO_ENTERO .)
+    IDENTIFICADOR   reduce using rule 43 (term -> NUMERO_ENTERO .)
+    NUMERO_ENTERO   reduce using rule 43 (term -> NUMERO_ENTERO .)
+    LPAREN          reduce using rule 43 (term -> NUMERO_ENTERO .)
+    $end            reduce using rule 43 (term -> NUMERO_ENTERO .)
+    OPERADOR_COMPARACION reduce using rule 43 (term -> NUMERO_ENTERO .)
 
 
 state 56
 
-    (36) parametros -> vacio .
+    (48) estructura_print -> LPAREN CADENA RPAREN .
 
-    RPAREN          reduce using rule 36 (parametros -> vacio .)
+    $end            reduce using rule 48 (estructura_print -> LPAREN CADENA RPAREN .)
 
 
 state 57
 
-    (48) term -> LPAREN expr_arit RPAREN .
+    (49) estructura_print -> LPAREN IDENTIFICADOR RPAREN .
 
-    OPERADOR_ARITMETICO reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    IDENTIFICADOR   reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    NUMERO_ENTERO   reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    LPAREN          reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    $end            reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    RPAREN          reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
-    OPERADOR_COMPARACION reduce using rule 48 (term -> LPAREN expr_arit RPAREN .)
+    $end            reduce using rule 49 (estructura_print -> LPAREN IDENTIFICADOR RPAREN .)
 
 
 state 58
 
-    (44) expr_arit -> OPERADOR_ARITMETICO term expr_arit .
+    (23) expr_condi -> LPAREN argumento OPERADOR_COMPARACION . argumento RPAREN
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    $end            reduce using rule 44 (expr_arit -> OPERADOR_ARITMETICO term expr_arit .)
-    RPAREN          reduce using rule 44 (expr_arit -> OPERADOR_ARITMETICO term expr_arit .)
-    OPERADOR_COMPARACION reduce using rule 44 (expr_arit -> OPERADOR_ARITMETICO term expr_arit .)
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 73
 
 state 59
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION . LPAREN parametros_for RPAREN DOS_PUNTOS
+    (25) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION . argumento RPAREN
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    LPAREN          shift and go to state 74
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 74
 
 state 60
 
-    (32) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN
+    (44) term -> LPAREN expr_arit RPAREN .
 
-    RPAREN          shift and go to state 75
+    OPERADOR_ARITMETICO reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    $end            reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    OPERADOR_COMPARACION reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    RPAREN          reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    IDENTIFICADOR   reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    NUMERO_ENTERO   reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
+    LPAREN          reduce using rule 44 (term -> LPAREN expr_arit RPAREN .)
 
 
 state 61
 
-    (49) estructura_print -> LPAREN CADENA RPAREN .
+    (22) estructura_while -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
+    (27) estructura_if -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
+    (30) estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
 
-    $end            reduce using rule 49 (estructura_print -> LPAREN CADENA RPAREN .)
+    DOS_PUNTOS      shift and go to state 75
 
 
 state 62
 
-    (50) estructura_print -> LPAREN IDENTIFICADOR RPAREN .
+    (23) expr_condi -> LPAREN . argumento OPERADOR_COMPARACION argumento RPAREN
+    (25) expr_condi -> LPAREN . expr_arit OPERADOR_COMPARACION argumento RPAREN
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
+    (60) vacio -> .
 
-    $end            reduce using rule 50 (estructura_print -> LPAREN IDENTIFICADOR RPAREN .)
+    IDENTIFICADOR   shift and go to state 77
+    NUMERO_ENTERO   shift and go to state 35
+    LPAREN          shift and go to state 29
+    OPERADOR_COMPARACION reduce using rule 60 (vacio -> .)
 
+    argumento                      shift and go to state 33
+    expr_arit                      shift and go to state 76
+    term                           shift and go to state 24
+    vacio                          shift and go to state 36
 
 state 63
 
-    (24) expr_condi -> LPAREN argumento OPERADOR_COMPARACION . argumento RPAREN
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (19) argumento -> IDENTIFICADOR .
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    OPERADOR_COMPARACION reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    DOS_PUNTOS      reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_LOGICO reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    $end            reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    RPAREN          reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    SEPARADOR       reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_ARITMETICO reduce using rule 19 (argumento -> IDENTIFICADOR .)
 
-    argumento                      shift and go to state 76
 
 state 64
 
-    (26) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION . argumento RPAREN
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (20) argumento -> NUMERO_ENTERO .
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    OPERADOR_COMPARACION reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    DOS_PUNTOS      reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    OPERADOR_LOGICO reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    $end            reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    RPAREN          reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    SEPARADOR       reduce using rule 20 (argumento -> NUMERO_ENTERO .)
+    OPERADOR_ARITMETICO reduce using rule 20 (argumento -> NUMERO_ENTERO .)
 
-    argumento                      shift and go to state 77
 
 state 65
 
-    (23) estructura_while -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
-    (28) estructura_if -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
-    (31) estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi . DOS_PUNTOS
+    (24) expr_condi -> argumento OPERADOR_COMPARACION argumento .
 
-    DOS_PUNTOS      shift and go to state 78
+    DOS_PUNTOS      reduce using rule 24 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
+    OPERADOR_LOGICO reduce using rule 24 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
+    $end            reduce using rule 24 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
 
 
 state 66
 
-    (24) expr_condi -> LPAREN . argumento OPERADOR_COMPARACION argumento RPAREN
-    (26) expr_condi -> LPAREN . expr_arit OPERADOR_COMPARACION argumento RPAREN
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
-    (43) expr_arit -> . term expr_arit
-    (44) expr_arit -> . OPERADOR_ARITMETICO term expr_arit
-    (45) expr_arit -> . vacio
-    (46) term -> . IDENTIFICADOR
-    (47) term -> . NUMERO_ENTERO
-    (48) term -> . LPAREN expr_arit RPAREN
-    (61) vacio -> .
+    (46) expr_arit -> term OPERADOR_ARITMETICO term . expr_arit
+    (45) expr_arit -> . term
+    (46) expr_arit -> . term OPERADOR_ARITMETICO term expr_arit
+    (47) expr_arit -> . vacio
+    (42) term -> . IDENTIFICADOR
+    (43) term -> . NUMERO_ENTERO
+    (44) term -> . LPAREN expr_arit RPAREN
+    (60) vacio -> .
 
-    IDENTIFICADOR   shift and go to state 80
-    NUMERO_ENTERO   shift and go to state 43
-    OPERADOR_ARITMETICO shift and go to state 11
-    LPAREN          shift and go to state 9
-    OPERADOR_COMPARACION reduce using rule 61 (vacio -> .)
+    IDENTIFICADOR   shift and go to state 54
+    NUMERO_ENTERO   shift and go to state 55
+    LPAREN          shift and go to state 29
+    $end            reduce using rule 60 (vacio -> .)
+    OPERADOR_COMPARACION reduce using rule 60 (vacio -> .)
+    RPAREN          reduce using rule 60 (vacio -> .)
 
-    argumento                      shift and go to state 41
-    expr_arit                      shift and go to state 79
-    term                           shift and go to state 10
-    vacio                          shift and go to state 32
+    term                           shift and go to state 24
+    expr_arit                      shift and go to state 78
+    vacio                          shift and go to state 36
 
 state 67
 
-    (20) argumento -> IDENTIFICADOR .
+    (58) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN . parametros RPAREN
+    (31) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN
+    (33) parametros -> . IDENTIFICADOR parametros
+    (34) parametros -> . SEPARADOR IDENTIFICADOR parametros
+    (35) parametros -> . vacio
+    (60) vacio -> .
 
-    OPERADOR_COMPARACION reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    DOS_PUNTOS      reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_LOGICO reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    $end            reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    RPAREN          reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    SEPARADOR       reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_ARITMETICO reduce using rule 20 (argumento -> IDENTIFICADOR .)
+    IDENTIFICADOR   shift and go to state 47
+    SEPARADOR       shift and go to state 49
+    RPAREN          reduce using rule 60 (vacio -> .)
 
+    parametros                     shift and go to state 79
+    vacio                          shift and go to state 50
 
 state 68
 
-    (21) argumento -> NUMERO_ENTERO .
+    (33) parametros -> IDENTIFICADOR parametros .
 
-    OPERADOR_COMPARACION reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    DOS_PUNTOS      reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    OPERADOR_LOGICO reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    $end            reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    RPAREN          reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    SEPARADOR       reduce using rule 21 (argumento -> NUMERO_ENTERO .)
-    OPERADOR_ARITMETICO reduce using rule 21 (argumento -> NUMERO_ENTERO .)
+    RPAREN          reduce using rule 33 (parametros -> IDENTIFICADOR parametros .)
 
 
 state 69
 
-    (25) expr_condi -> argumento OPERADOR_COMPARACION argumento .
+    (57) declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN .
 
-    DOS_PUNTOS      reduce using rule 25 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
-    OPERADOR_LOGICO reduce using rule 25 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
-    $end            reduce using rule 25 (expr_condi -> argumento OPERADOR_COMPARACION argumento .)
+    $end            reduce using rule 57 (declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN .)
 
 
 state 70
 
-    (59) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN . parametros RPAREN
-    (32) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN . parametros RPAREN
-    (34) parametros -> . IDENTIFICADOR parametros
-    (35) parametros -> . SEPARADOR IDENTIFICADOR parametros
-    (36) parametros -> . vacio
-    (61) vacio -> .
+    (34) parametros -> SEPARADOR IDENTIFICADOR . parametros
+    (33) parametros -> . IDENTIFICADOR parametros
+    (34) parametros -> . SEPARADOR IDENTIFICADOR parametros
+    (35) parametros -> . vacio
+    (60) vacio -> .
 
-    IDENTIFICADOR   shift and go to state 53
-    SEPARADOR       shift and go to state 55
-    RPAREN          reduce using rule 61 (vacio -> .)
+    IDENTIFICADOR   shift and go to state 47
+    SEPARADOR       shift and go to state 49
+    RPAREN          reduce using rule 60 (vacio -> .)
 
-    parametros                     shift and go to state 81
-    vacio                          shift and go to state 56
+    parametros                     shift and go to state 80
+    vacio                          shift and go to state 50
 
 state 71
 
-    (34) parametros -> IDENTIFICADOR parametros .
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN . parametros_for RPAREN DOS_PUNTOS
+    (14) parametros_for -> . argumento SEPARADOR argumento
+    (15) parametros_for -> . argumento
+    (16) parametros_for -> . argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (17) parametros_for -> . argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (18) parametros_for -> . vacio
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
+    (60) vacio -> .
 
-    RPAREN          reduce using rule 34 (parametros -> IDENTIFICADOR parametros .)
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
+    RPAREN          reduce using rule 60 (vacio -> .)
 
+    parametros_for                 shift and go to state 81
+    argumento                      shift and go to state 82
+    vacio                          shift and go to state 83
 
 state 72
 
-    (58) declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN .
+    (31) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN . DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .
 
-    $end            reduce using rule 58 (declaracion_variable -> IDENTIFICADOR LPAREN parametros RPAREN .)
+    DOS_PUNTOS      shift and go to state 84
+    $end            reduce using rule 32 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
 
 
 state 73
 
-    (35) parametros -> SEPARADOR IDENTIFICADOR . parametros
-    (34) parametros -> . IDENTIFICADOR parametros
-    (35) parametros -> . SEPARADOR IDENTIFICADOR parametros
-    (36) parametros -> . vacio
-    (61) vacio -> .
+    (23) expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento . RPAREN
 
-    IDENTIFICADOR   shift and go to state 53
-    SEPARADOR       shift and go to state 55
-    RPAREN          reduce using rule 61 (vacio -> .)
+    RPAREN          shift and go to state 85
 
-    parametros                     shift and go to state 82
-    vacio                          shift and go to state 56
 
 state 74
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN . parametros_for RPAREN DOS_PUNTOS
-    (15) parametros_for -> . argumento SEPARADOR argumento
-    (16) parametros_for -> . argumento
-    (17) parametros_for -> . argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-    (18) parametros_for -> . argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-    (19) parametros_for -> . vacio
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
-    (61) vacio -> .
+    (25) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento . RPAREN
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
-    RPAREN          reduce using rule 61 (vacio -> .)
+    RPAREN          shift and go to state 86
 
-    parametros_for                 shift and go to state 83
-    argumento                      shift and go to state 84
-    vacio                          shift and go to state 85
 
 state 75
 
-    (32) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN . DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .
+    (22) estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
+    (27) estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
+    (30) estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
 
-    DOS_PUNTOS      shift and go to state 86
-    $end            reduce using rule 33 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
+  ! reduce/reduce conflict for $end resolved using rule 22 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
+  ! reduce/reduce conflict for $end resolved using rule 22 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
+    $end            reduce using rule 22 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
+
+  ! $end            [ reduce using rule 27 (estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .) ]
+  ! $end            [ reduce using rule 30 (estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .) ]
 
 
 state 76
 
-    (24) expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento . RPAREN
+    (25) expr_condi -> LPAREN expr_arit . OPERADOR_COMPARACION argumento RPAREN
 
-    RPAREN          shift and go to state 87
+    OPERADOR_COMPARACION shift and go to state 59
 
 
 state 77
 
-    (26) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento . RPAREN
+    (19) argumento -> IDENTIFICADOR .
+    (42) term -> IDENTIFICADOR .
 
-    RPAREN          shift and go to state 88
+  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_COMPARACION reduce using rule 19 (argumento -> IDENTIFICADOR .)
+    OPERADOR_ARITMETICO reduce using rule 42 (term -> IDENTIFICADOR .)
+
+  ! OPERADOR_COMPARACION [ reduce using rule 42 (term -> IDENTIFICADOR .) ]
 
 
 state 78
 
-    (23) estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
-    (28) estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
-    (31) estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .
+    (46) expr_arit -> term OPERADOR_ARITMETICO term expr_arit .
 
-  ! reduce/reduce conflict for $end resolved using rule 23 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
-  ! reduce/reduce conflict for $end resolved using rule 23 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
-    $end            reduce using rule 23 (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .)
-
-  ! $end            [ reduce using rule 28 (estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .) ]
-  ! $end            [ reduce using rule 31 (estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS .) ]
+    $end            reduce using rule 46 (expr_arit -> term OPERADOR_ARITMETICO term expr_arit .)
+    OPERADOR_COMPARACION reduce using rule 46 (expr_arit -> term OPERADOR_ARITMETICO term expr_arit .)
+    RPAREN          reduce using rule 46 (expr_arit -> term OPERADOR_ARITMETICO term expr_arit .)
 
 
 state 79
 
-    (26) expr_condi -> LPAREN expr_arit . OPERADOR_COMPARACION argumento RPAREN
+    (58) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros . RPAREN
+    (31) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN
 
-    OPERADOR_COMPARACION shift and go to state 64
+    RPAREN          shift and go to state 87
 
 
 state 80
 
-    (20) argumento -> IDENTIFICADOR .
-    (46) term -> IDENTIFICADOR .
+    (34) parametros -> SEPARADOR IDENTIFICADOR parametros .
 
-  ! reduce/reduce conflict for OPERADOR_COMPARACION resolved using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_COMPARACION reduce using rule 20 (argumento -> IDENTIFICADOR .)
-    OPERADOR_ARITMETICO reduce using rule 46 (term -> IDENTIFICADOR .)
-    IDENTIFICADOR   reduce using rule 46 (term -> IDENTIFICADOR .)
-    NUMERO_ENTERO   reduce using rule 46 (term -> IDENTIFICADOR .)
-    LPAREN          reduce using rule 46 (term -> IDENTIFICADOR .)
-
-  ! OPERADOR_COMPARACION [ reduce using rule 46 (term -> IDENTIFICADOR .) ]
+    RPAREN          reduce using rule 34 (parametros -> SEPARADOR IDENTIFICADOR parametros .)
 
 
 state 81
 
-    (59) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros . RPAREN
-    (32) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN parametros . RPAREN
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for . RPAREN DOS_PUNTOS
 
-    RPAREN          shift and go to state 89
+    RPAREN          shift and go to state 88
 
 
 state 82
 
-    (35) parametros -> SEPARADOR IDENTIFICADOR parametros .
+    (14) parametros_for -> argumento . SEPARADOR argumento
+    (15) parametros_for -> argumento .
+    (16) parametros_for -> argumento . OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (17) parametros_for -> argumento . SEPARADOR argumento OPERADOR_ARITMETICO argumento
 
-    RPAREN          reduce using rule 35 (parametros -> SEPARADOR IDENTIFICADOR parametros .)
+    SEPARADOR       shift and go to state 89
+    RPAREN          reduce using rule 15 (parametros_for -> argumento .)
+    OPERADOR_ARITMETICO shift and go to state 90
 
 
 state 83
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for . RPAREN DOS_PUNTOS
+    (18) parametros_for -> vacio .
 
-    RPAREN          shift and go to state 90
+    RPAREN          reduce using rule 18 (parametros_for -> vacio .)
 
 
 state 84
 
-    (15) parametros_for -> argumento . SEPARADOR argumento
-    (16) parametros_for -> argumento .
-    (17) parametros_for -> argumento . OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-    (18) parametros_for -> argumento . SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (31) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS .
 
-    SEPARADOR       shift and go to state 91
-    RPAREN          reduce using rule 16 (parametros_for -> argumento .)
-    OPERADOR_ARITMETICO shift and go to state 92
+    $end            reduce using rule 31 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS .)
 
 
 state 85
 
-    (19) parametros_for -> vacio .
+    (23) expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .
 
-    RPAREN          reduce using rule 19 (parametros_for -> vacio .)
+    DOS_PUNTOS      reduce using rule 23 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
+    OPERADOR_LOGICO reduce using rule 23 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
+    $end            reduce using rule 23 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
 
 
 state 86
 
-    (32) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS .
+    (25) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .
 
-    $end            reduce using rule 32 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN DOS_PUNTOS .)
+    DOS_PUNTOS      reduce using rule 25 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
+    OPERADOR_LOGICO reduce using rule 25 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
+    $end            reduce using rule 25 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
 
 
 state 87
 
-    (24) expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .
+    (58) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN .
+    (31) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN . DOS_PUNTOS
+    (32) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .
 
-    DOS_PUNTOS      reduce using rule 24 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
-    OPERADOR_LOGICO reduce using rule 24 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
-    $end            reduce using rule 24 (expr_condi -> LPAREN argumento OPERADOR_COMPARACION argumento RPAREN .)
+  ! reduce/reduce conflict for $end resolved using rule 32 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
+    DOS_PUNTOS      shift and go to state 84
+    $end            reduce using rule 32 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
+
+  ! $end            [ reduce using rule 58 (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN .) ]
 
 
 state 88
 
-    (26) expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN . DOS_PUNTOS
 
-    DOS_PUNTOS      reduce using rule 26 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
-    OPERADOR_LOGICO reduce using rule 26 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
-    $end            reduce using rule 26 (expr_condi -> LPAREN expr_arit OPERADOR_COMPARACION argumento RPAREN .)
+    DOS_PUNTOS      shift and go to state 91
 
 
 state 89
 
-    (59) declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN .
-    (32) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN . DOS_PUNTOS
-    (33) estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .
+    (14) parametros_for -> argumento SEPARADOR . argumento
+    (17) parametros_for -> argumento SEPARADOR . argumento OPERADOR_ARITMETICO argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-  ! reduce/reduce conflict for $end resolved using rule 33 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
-    DOS_PUNTOS      shift and go to state 86
-    $end            reduce using rule 33 (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN .)
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
-  ! $end            [ reduce using rule 59 (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN .) ]
-
+    argumento                      shift and go to state 92
 
 state 90
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN . DOS_PUNTOS
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO . argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    DOS_PUNTOS      shift and go to state 93
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 93
 
 state 91
 
-    (15) parametros_for -> argumento SEPARADOR . argumento
-    (18) parametros_for -> argumento SEPARADOR . argumento OPERADOR_ARITMETICO argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (13) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS .
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    $end            reduce using rule 13 (estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS .)
 
-    argumento                      shift and go to state 94
 
 state 92
 
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO . argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (14) parametros_for -> argumento SEPARADOR argumento .
+    (17) parametros_for -> argumento SEPARADOR argumento . OPERADOR_ARITMETICO argumento
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    RPAREN          reduce using rule 14 (parametros_for -> argumento SEPARADOR argumento .)
+    OPERADOR_ARITMETICO shift and go to state 94
 
-    argumento                      shift and go to state 95
 
 state 93
 
-    (14) estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS .
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO argumento . SEPARADOR argumento OPERADOR_ARITMETICO argumento
 
-    $end            reduce using rule 14 (estructura_for -> IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS .)
+    SEPARADOR       shift and go to state 95
 
 
 state 94
 
-    (15) parametros_for -> argumento SEPARADOR argumento .
-    (18) parametros_for -> argumento SEPARADOR argumento . OPERADOR_ARITMETICO argumento
+    (17) parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO . argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    RPAREN          reduce using rule 15 (parametros_for -> argumento SEPARADOR argumento .)
-    OPERADOR_ARITMETICO shift and go to state 96
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 96
 
 state 95
 
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO argumento . SEPARADOR argumento OPERADOR_ARITMETICO argumento
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR . argumento OPERADOR_ARITMETICO argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    SEPARADOR       shift and go to state 97
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 97
 
 state 96
 
-    (18) parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO . argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (17) parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    RPAREN          reduce using rule 17 (parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .)
 
-    argumento                      shift and go to state 98
 
 state 97
 
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR . argumento OPERADOR_ARITMETICO argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento . OPERADOR_ARITMETICO argumento
 
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
+    OPERADOR_ARITMETICO shift and go to state 98
 
-    argumento                      shift and go to state 99
 
 state 98
 
-    (18) parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO . argumento
+    (19) argumento -> . IDENTIFICADOR
+    (20) argumento -> . NUMERO_ENTERO
 
-    RPAREN          reduce using rule 18 (parametros_for -> argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .)
+    IDENTIFICADOR   shift and go to state 63
+    NUMERO_ENTERO   shift and go to state 64
 
+    argumento                      shift and go to state 99
 
 state 99
 
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento . OPERADOR_ARITMETICO argumento
+    (16) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .
 
-    OPERADOR_ARITMETICO shift and go to state 100
-
-
-state 100
-
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO . argumento
-    (20) argumento -> . IDENTIFICADOR
-    (21) argumento -> . NUMERO_ENTERO
-
-    IDENTIFICADOR   shift and go to state 67
-    NUMERO_ENTERO   shift and go to state 68
-
-    argumento                      shift and go to state 101
-
-state 101
-
-    (17) parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .
-
-    RPAREN          reduce using rule 17 (parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .)
+    RPAREN          reduce using rule 16 (parametros_for -> argumento OPERADOR_ARITMETICO argumento SEPARADOR argumento OPERADOR_ARITMETICO argumento .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for LPAREN in state 7 resolved as shift
-WARNING: shift/reduce conflict for LPAREN in state 20 resolved as shift
-WARNING: shift/reduce conflict for RPAREN in state 21 resolved as shift
-WARNING: shift/reduce conflict for RPAREN in state 40 resolved as shift
-WARNING: shift/reduce conflict for LPAREN in state 47 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 16 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 32 resolved as shift
 WARNING: reduce/reduce conflict in state 2 resolved using rule (programa -> vacio)
 WARNING: rejected rule (instrucciones -> vacio) in state 2
-WARNING: reduce/reduce conflict in state 2 resolved using rule (programa -> vacio)
-WARNING: rejected rule (expr_arit -> vacio) in state 2
-WARNING: reduce/reduce conflict in state 7 resolved using rule (term -> IDENTIFICADOR)
-WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR) in state 7
-WARNING: reduce/reduce conflict in state 20 resolved using rule (estructura_return -> IDENTIFICADOR)
-WARNING: rejected rule (term -> IDENTIFICADOR) in state 20
-WARNING: reduce/reduce conflict in state 25 resolved using rule (estructura_return -> NUMERO_ENTERO)
-WARNING: rejected rule (term -> NUMERO_ENTERO) in state 25
-WARNING: reduce/reduce conflict in state 27 resolved using rule (estructura_return -> vacio)
-WARNING: rejected rule (expr_arit -> vacio) in state 27
-WARNING: reduce/reduce conflict in state 40 resolved using rule (argumento -> IDENTIFICADOR)
-WARNING: rejected rule (term -> IDENTIFICADOR) in state 40
-WARNING: reduce/reduce conflict in state 43 resolved using rule (argumento -> NUMERO_ENTERO)
-WARNING: rejected rule (term -> NUMERO_ENTERO) in state 43
-WARNING: reduce/reduce conflict in state 44 resolved using rule (estructura_while -> expr_condi DOS_PUNTOS)
-WARNING: rejected rule (estructura_if -> expr_condi DOS_PUNTOS) in state 44
-WARNING: reduce/reduce conflict in state 44 resolved using rule (estructura_while -> expr_condi DOS_PUNTOS)
-WARNING: rejected rule (estructura_elif -> expr_condi DOS_PUNTOS) in state 44
-WARNING: reduce/reduce conflict in state 47 resolved using rule (term -> IDENTIFICADOR)
-WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR) in state 47
-WARNING: reduce/reduce conflict in state 48 resolved using rule (term -> NUMERO_ENTERO)
-WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO) in state 48
-WARNING: reduce/reduce conflict in state 78 resolved using rule (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS)
-WARNING: rejected rule (estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS) in state 78
-WARNING: reduce/reduce conflict in state 78 resolved using rule (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS)
-WARNING: rejected rule (estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS) in state 78
-WARNING: reduce/reduce conflict in state 80 resolved using rule (argumento -> IDENTIFICADOR)
-WARNING: rejected rule (term -> IDENTIFICADOR) in state 80
-WARNING: reduce/reduce conflict in state 89 resolved using rule (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN)
-WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN) in state 89
+WARNING: reduce/reduce conflict in state 15 resolved using rule (estructura_return -> IDENTIFICADOR)
+WARNING: rejected rule (term -> IDENTIFICADOR) in state 15
+WARNING: reduce/reduce conflict in state 20 resolved using rule (estructura_return -> NUMERO_ENTERO)
+WARNING: rejected rule (term -> NUMERO_ENTERO) in state 20
+WARNING: reduce/reduce conflict in state 22 resolved using rule (estructura_return -> vacio)
+WARNING: rejected rule (expr_arit -> vacio) in state 22
+WARNING: reduce/reduce conflict in state 32 resolved using rule (argumento -> IDENTIFICADOR)
+WARNING: rejected rule (term -> IDENTIFICADOR) in state 32
+WARNING: reduce/reduce conflict in state 35 resolved using rule (argumento -> NUMERO_ENTERO)
+WARNING: rejected rule (term -> NUMERO_ENTERO) in state 35
+WARNING: reduce/reduce conflict in state 37 resolved using rule (estructura_while -> expr_condi DOS_PUNTOS)
+WARNING: rejected rule (estructura_if -> expr_condi DOS_PUNTOS) in state 37
+WARNING: reduce/reduce conflict in state 37 resolved using rule (estructura_while -> expr_condi DOS_PUNTOS)
+WARNING: rejected rule (estructura_elif -> expr_condi DOS_PUNTOS) in state 37
+WARNING: reduce/reduce conflict in state 41 resolved using rule (term -> IDENTIFICADOR)
+WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR) in state 41
+WARNING: reduce/reduce conflict in state 42 resolved using rule (term -> NUMERO_ENTERO)
+WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION NUMERO_ENTERO) in state 42
+WARNING: reduce/reduce conflict in state 75 resolved using rule (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS)
+WARNING: rejected rule (estructura_if -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS) in state 75
+WARNING: reduce/reduce conflict in state 75 resolved using rule (estructura_while -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS)
+WARNING: rejected rule (estructura_elif -> expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS) in state 75
+WARNING: reduce/reduce conflict in state 77 resolved using rule (argumento -> IDENTIFICADOR)
+WARNING: rejected rule (term -> IDENTIFICADOR) in state 77
+WARNING: reduce/reduce conflict in state 87 resolved using rule (estructura_def -> IDENTIFICADOR LPAREN parametros RPAREN)
+WARNING: rejected rule (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR LPAREN parametros RPAREN) in state 87
 WARNING: Rule (instrucciones -> vacio) is never reduced
-WARNING: Rule (declaracion_variable -> IDENTIFICADOR) is never reduced
 WARNING: Rule (estructura_if -> expr_condi DOS_PUNTOS) is never reduced
 WARNING: Rule (estructura_elif -> expr_condi DOS_PUNTOS) is never reduced
 WARNING: Rule (declaracion_variable -> IDENTIFICADOR ASIGNACION IDENTIFICADOR) is never reduced
