@@ -140,16 +140,16 @@ class CompilerApp:
        
         
     def export_pdf(self):
-        # Obtener el texto del cuadro de texto
-        if(compiladoCompleto):
+    # Obtener el texto del cuadro de texto
+        if compiladoCompleto:
             text_content = self.textbox.get(1.0, "end-1c")
             limpiar_arreglos()
             obtener_encabezados(text_content)
-            if(not verificar_encabezados()):
+            if not verificar_encabezados():
                 messagebox.showinfo("Error", "Asegurase de escribir los encabezados al principio del codigo.\n"
-                        + "Sigue el siguiente formato: \nNombre: Segundo Nombre (Opcional) Apellido Paterno Apellido Materno\n"
-                        + "Numero: +521 7245879023, 7894572901 o (+521) 7489704327\n"
-                        + "Correo electronico: john.doe@example.com/alice.smith123@email-example.com/juan.perez@email-123.net")
+                                    + "Sigue el siguiente formato: \nNombre: Segundo Nombre (Opcional) Apellido Paterno Apellido Materno\n"
+                                    + "Numero: +521 7245879023, 7894572901 o (+521) 7489704327\n"
+                                    + "Correo electronico: john.doe@example.com/alice.smith123@email-example.com/juan.perez@email-123.net")
                 return 
             documentar_lineas()
 
@@ -165,6 +165,11 @@ class CompilerApp:
 
                 y_coordinate = 750  # Posición vertical inicial
                 for line in lineas_documentadas:
+                    # Convertir la línea a cadena si no lo es
+                    if line is None:
+                        line = ""
+                    else:
+                        line = str(line)
                     # Dividir las líneas largas en varias líneas más cortas usando simpleSplit
                     wrapped_lines = simpleSplit(line, "Helvetica", 10, 450)  # Ajustar el ancho según sea necesario
                     for wrapped_line in wrapped_lines:

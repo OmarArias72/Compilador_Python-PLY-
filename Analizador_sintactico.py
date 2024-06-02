@@ -4,6 +4,7 @@ from Analizador_lexico import analizador
 import ast
 
 resultado_gramatica=[]
+revision_gramatica=False
 errores_gramatica=[]
 resultado=""
 term_gramatica=[]
@@ -36,26 +37,37 @@ def p_instrucciones(p):
     # print(resultado_gramatica)
     
     if(p[1]=="for"):
-        if(p[2]!=None):
+        print("VALIDACION FOR")
+        if(p[2]!=None and revision_gramatica):
+            print("NO SE LLAMA A LA GRAMATICA")
             p[0]=p[1]+p[2]
         else:
             errores_gramatica.append(f"Error de sintaxis en")
     elif(p[1]=="while"):
-        p[0]=p[1]+p[2]
+        if(p[2]!=None):
+            p[0]=p[1]+p[2]
+        else:
+            errores_gramatica.append(f"Error de sintaxis en")
     elif(p[1]=="if"):
-        p[0]=p[1]+p[2]
+        print("VALIDACION IF")
+        if(p[2]!=None):
+            p[0]=p[1]+p[2]
+        else:
+            errores_gramatica.append(f"Error de sintaxis en")
+            return
     elif(p[1]=="elif"):
         p[0]=p[1]+p[2]
     elif(p[1]=="else"):
         print("VALIDACION ELSE")
-        print(f"vALOR DE {p[1]} y {p[2]}")
+        #print(f"vALOR DE {p[1]} y {p[2]}")
         print(f"Tipo de valor de {p[2]} es {type(p[2])}")
-        if(p[2]!="None"):
+        if(p[2]!="None" and p[2]!=None):
             p[0]=p[1]+p[2]
+            print(f"Tipo de valor en P[2] {p[2]} ")
         else:
             errores_gramatica.append(f"Error de sintaxis en")
     elif(p[1]=="def"):
-        print("validacion RETURN")
+        print("validacion DEF")
         p[0]=p[1]+p[2]
     elif(p[1]=="return"):
         print("validacion RETURN")
@@ -73,10 +85,14 @@ def p_instrucciones(p):
      
 def p_estructura_for(p):
     '''estructura_for : IDENTIFICADOR INSTRUCCION INSTRUCCION LPAREN parametros_for RPAREN DOS_PUNTOS'''
+    print("SE LLAMA A LA GRAMATICA")
+    #revision_gramatica=True
     if(p[5]==None and p[2]=="in" and p[3]=="range"):
         p[0]=p[1]+p[2]+p[3]+p[4]+p[6]+p[7]
     elif(p[2]=="in" and p[3]=="range"):    
-        p[0]=p[1]+p[2]+p[3]+p[4]+p[5]+p[6]+p[7]
+        p[0]=p[1]+p[2]+p[3]+p[4]+str(p[5])+p[6]+p[7]
+    else:
+        errores_gramatica.append("Error")
     
 def p_parametros_for(p):
     '''parametros_for : argumento SEPARADOR argumento
@@ -107,7 +123,7 @@ def p_argumento(p):
 def p_estructura_while(p):
     '''estructura_while : expr_condi DOS_PUNTOS
                         | expr_condi OPERADOR_LOGICO expr_condi DOS_PUNTOS'''
-    if(len(p)==3):
+    if(len(p)==3 and p[1]!=None):
         p[0]=p[1]+p[2]
     elif(len(p)==5):
         p[0]=p[1]+p[2]+p[3]+p[4]
@@ -121,7 +137,9 @@ def p_expr_condi(p):
     # print(resultado_gramatica)
     # resultado_gramatica.append(p[1])
     # print(resultado_gramatica)
-    if(len(p)==6):
+
+
+    if(len(p)==6 and p[2]!=None):
         p[0]=p[1]+str(p[2])+p[3]+str(p[4])+p[5]
     elif(len(p)==4):
         
@@ -138,8 +156,11 @@ def p_estructura_if(p):
 def p_estructura_else(p):
     '''estructura_else : DOS_PUNTOS'''
     print(f"VALIDACION ELSE en {p[1]}")
+    revision_gramatica=True
     if(len(p)==2 and p[1]!="None"):
+        #print("SE REALIZA VALIDACION EN ELSE")
         p[0]=p[1]
+        #print(f"P[0] = {p[0]}")
     
 def p_estructura_elif(p):
     '''estructura_elif : expr_condi DOS_PUNTOS
@@ -218,6 +239,7 @@ def p_term(p):
 def p_expr_arit(p):
     '''expr_arit : term
                  | term OPERADOR_ARITMETICO term expr_arit
+                 | OPERADOR_ARITMETICO term expr_arit
                  | vacio'''
     print("EXPR_ARIT")
     resultado_gramatica.append(p[1])
@@ -227,7 +249,11 @@ def p_expr_arit(p):
     if(len(p)==2):
         p[0]=p[1]
 
-            
+    elif(len(p)==4):
+        if(p[3]==None):
+            p[0]=p[1]+p[2]
+        else:
+            p[0]=p[1]+p[2]+p[3]  
     elif(len(p)==5):
         print("Se invoca PRODUCCION 2")
         if(p[4]==None):
@@ -317,7 +343,7 @@ parser = yacc.yacc()
 # print("Analizador sintactico")
 # while True:
 #    try:
-#        s = """contador =con+ 1"""
+#        s = """else num:"""
 #    except EOFError:
 #        break
 #    if not s: 

@@ -91,18 +91,18 @@ def encontrar_patron(cadena):
         return cadena_extraida
 
 def encontrar_patron_codigo(cadena):
-    #print(f"Valor a verificar {cadena}\n")
+    print(f"ELEMENTO A DOCUMENTAR {cadena}\n")
     patron=re.search(instruccion_print,cadena)
     if(patron):
         return f"//La instruccion print realiza la impresion del mensaje/variable en consola//"
     
-    patron=re.search(estructura_if,cadena)
+    patron=re.match(estructura_if,cadena.strip())
     if(patron):
         return f"""//La instruccion if realiza la comprobacion de la condicion para controlar la siguiente instruccion a ejecutar//"""
     patron=re.search(estructura_else,cadena)
     if(patron):
         return f"""//La instruccion else realiza la ejecucion de la siguiente instruccion cuando no se cumple la condicion if//"""
-    patron=re.search(estructura_elif,cadena)
+    patron=re.match(estructura_elif,cadena.strip())
     if(patron):
         return f"//La instruccion elif realiza la comprobacion de otra condicion si no se cumple una condicion definida por if//"
     patron=re.search(estructura_for,cadena)
@@ -121,7 +121,7 @@ def encontrar_patron_codigo(cadena):
     "ademas puede retornar un valor especificado despues de su declaracion por ejemplo:"+ 
     "return 1, return a*b, return True, etc.//")
         
-    patron=re.search(declaracion_funcion,cadena)
+    patron=re.match(declaracion_funcion,cadena)
     if(patron):
         return (f"Se realiza el llamado de la funcion con o sin parametros")
     
@@ -145,11 +145,14 @@ def documentar_lineas():
         
     for line in texto_escribir:
         #print(f"ELEMENTO A IMPRIMIR {line}\n")
-        if(line.startswith("#")):
+        
+        if(line.strip().startswith("#")):
             print("SE EXCLUYE COMENTARIO")
             print(f"Comentario contenido: {(subcadena:=line[0:1])}")
             lineas_documentadas.append(line)
             #continue
+        elif(line==""):
+            continue
         else:
             lineas_documentadas.append(encontrar_patron_codigo(line))
             lineas_documentadas.append(line)
